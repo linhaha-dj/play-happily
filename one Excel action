@@ -1,0 +1,19 @@
+import pandas as pd
+import os
+import warnings
+warnings.filterwarnings("ignore")
+import numpy as np
+Folder_Path = r'C:\Users\hp\Desktop\1202-2'
+saveFile_Path = r'C:\Users\hp\Desktop\1202-2'
+saveFile_Name = r'all.csv'
+os.chdir(Folder_Path)
+file_list = os.listdir(saveFile_Path)
+'''
+df=pd.read_csv(Folder_Path + '\\' + file_list[0])
+'''
+print (file_list)   #检测是否有读取到文件名目录
+for i in file_list: #循环读取同文件夹下的csv文件
+    fr = open(i,'rb').read()
+    with open('all.csv','ab') as f: #将结果保存为result.csv
+        f.write(fr)
+print(u'合并完毕！')
